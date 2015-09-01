@@ -5,7 +5,7 @@ class Card
 
   def initialize(number_and_seed)
     @number = number_and_seed.slice(0, 1).to_i
-    @seed = number_and_seed.slice(1, 1)
+    @seed   = number_and_seed.slice(1, 1)
   end
 
 end
