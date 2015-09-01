@@ -12,4 +12,8 @@ class Card
     @seed == other_card.seed
   end
 
+  def is_natural_successor? other_card
+    has_same_seed?(other_card) && @number == other_card.number-1
+  end
+
 end
