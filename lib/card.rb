@@ -17,4 +17,8 @@ class Card
     has_same_seed?(other_card) && @number == other_card.number-1
   end
 
+  def ==(other)
+    @number == other.number && @seed == other.seed
+  end
+
 end

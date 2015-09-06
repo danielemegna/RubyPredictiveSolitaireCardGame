@@ -31,4 +31,13 @@ RSpec.describe Card do
     eight_of_denari.is_natural_successor?(nine_of_coppe).should be_false
   end
 
+  it "supports equality" do
+    card          = Card.new "2C"
+    same_card     = Card.new "2C"
+    another_card  = Card.new "5C"
+
+    expect(card).to eq same_card
+    expect(card).not_to eq another_card
+  end
+
 end
