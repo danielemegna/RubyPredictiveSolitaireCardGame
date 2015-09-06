@@ -4,6 +4,8 @@ class Deck
     @cards = cards.split.map {
       |card| Card.new(card)
     }
+
+    @current_valuable_card_index = 1
   end
   
   def size
@@ -11,7 +13,7 @@ class Deck
   end
 
   def get_current_valuable_card
-    @cards[1]
+    @cards[@current_valuable_card_index]
   end
 
 end
