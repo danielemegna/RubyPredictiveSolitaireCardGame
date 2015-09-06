@@ -16,4 +16,12 @@ class Deck
     @cards[@current_valuable_card_index]
   end
 
+  def flip_cards
+    @current_valuable_card_index += 2
+
+    if(@current_valuable_card_index > @cards.length)
+      @current_valuable_card_index = 1
+    end
+  end
+
 end

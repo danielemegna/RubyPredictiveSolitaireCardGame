@@ -17,4 +17,16 @@ RSpec.describe Deck do
     expect(@deck.get_current_valuable_card).to eq expected
   end
 
+  it "change valuable card after flip" do
+    @deck.flip_cards
+    expected = Card.new "10B"
+    expect(@deck.get_current_valuable_card).to eq expected
+  end
+
+  it "reload from begin after 20 filp" do
+    20.times { @deck.flip_cards }
+    expected = Card.new "5C"
+    expect(@deck.get_current_valuable_card).to eq expected
+  end
+
 end
