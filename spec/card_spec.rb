@@ -3,9 +3,9 @@ require 'card'
 RSpec.describe Card do
 
   it "inits itself with number and seed" do
-    card = Card.new "4D" # to try with 10D ...
+    card = Card.new "10D"
 
-    expect(card.number).to eq 4
+    expect(card.number).to eq 10
     expect(card.seed).to eq "D"
   end
 
