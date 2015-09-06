@@ -1,15 +1,17 @@
 class Deck
 
   def initialize cards
-    
+    @cards = cards.split.map {
+      |card| Card.new(card)
+    }
   end
   
   def size
-    40
+    @cards.length
   end
 
   def get_current_valuable_card
-    Card.new "5C" 
+    @cards[1]
   end
 
 end
