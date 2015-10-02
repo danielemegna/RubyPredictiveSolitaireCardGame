@@ -12,21 +12,31 @@ RSpec.describe Deck do
     expect(@deck.size).to eq 40
   end
 
-  it "returns the current valuable card" do
+  it "show the current valuable card" do
     expected = Card.new "5C"
-    expect(@deck.get_current_valuable_card).to eq expected
+    expect(@deck.show_current_valuable_card).to eq expected
   end
 
   it "change valuable card after flip" do
     @deck.flip_cards
     expected = Card.new "10B"
-    expect(@deck.get_current_valuable_card).to eq expected
+    expect(@deck.show_current_valuable_card).to eq expected
   end
 
   it "reload from begin after 20 filp" do
     20.times { @deck.flip_cards }
     expected = Card.new "5C"
-    expect(@deck.get_current_valuable_card).to eq expected
+    expect(@deck.show_current_valuable_card).to eq expected
+  end
+
+  it "can remove the current valuable card" do
+    @deck.remove_current_valuable_card
+
+    expected_next_valuable_card = Card.new "9S"
+    expected_deck_size = 39
+
+    expect(@deck.show_current_valuable_card).to eq expected_next_valuable_card
+    expect(@deck.size).to eq expected_deck_size
   end
 
 end
