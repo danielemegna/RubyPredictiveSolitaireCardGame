@@ -47,6 +47,14 @@ RSpec.describe Deck do
     expect(@deck.show_current_valuable_card).to eq expected
   end
 
+  it "shows also the last card at the next round when cards count is odd" do
+    @deck.remove_current_valuable_card
+    39.times { @deck.flip_cards }
+    
+    expected = Card.new "3C"
+    expect(@deck.show_current_valuable_card).to eq expected
+  end
+
   #TODO after two removes at the beginning,
   # show_current_valuable_card should return nil
 
