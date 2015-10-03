@@ -23,4 +23,8 @@ class Card
     @seed == other.seed
   end
 
+  def to_s
+    "#{@number}#{@seed}"
+  end
+
 end

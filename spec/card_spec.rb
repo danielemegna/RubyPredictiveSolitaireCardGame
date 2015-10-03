@@ -41,6 +41,10 @@ RSpec.describe Card do
     expect(card).not_to eq nil
   end
 
+  it "defines a custom to_s" do
+    expect(Card.new("4D").to_s).to eq "4D"
+  end
+
   #TODO Card.new "AS" should be recognized as "1S" and so on ..
 
 end
