@@ -40,4 +40,6 @@ RSpec.describe Card do
     expect(card).not_to eq another_card
   end
 
+  #TODO Card.new "AS" should be recognized as "1S" and so on ..
+
 end
