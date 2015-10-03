@@ -39,4 +39,10 @@ RSpec.describe Deck do
     expect(@deck.size).to eq expected_deck_size
   end
 
+  #TODO after two removes at the beginning,
+  # show_current_valuable_card should return nil
+
+  #TODO a triple remove at the beginning of deck
+  # should raises an exception (?)
+
 end
