@@ -10,20 +10,20 @@ class Collector
   end
 
   def is_useful? card
-    latest_seed_card = @latest_useful_cards[card.seed]
+    latest_useful_card_by_seed = @latest_useful_cards[card.seed]
 
-    if(latest_seed_card == nil)
+    # TODO this should be handled using a "fake Card" that
+    # returns true when is_natural_successor is called 
+    # with a 1 card of the same seed
+    if(latest_useful_card_by_seed == nil)
       return card.number == 1
     end
 
-    return latest_seed_card.is_natural_successor? card
+    latest_useful_card_by_seed.is_natural_successor? card
   end
 
   def collect card
-    if(!is_useful? card)
-      raise UselessCollectAttempt, "Collector cannot collect #{card} card yet"
-    end
-
+    raise UselessCollectAttempt, "Collector cannot collect #{card} card yet" unless is_useful? card
     @latest_useful_cards[card.seed] = card
   end
 
