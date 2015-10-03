@@ -18,7 +18,9 @@ class Card
   end
 
   def ==(other)
-    @number == other.number && @seed == other.seed
+    other != nil &&
+    @number == other.number &&
+    @seed == other.seed
   end
 
 end
