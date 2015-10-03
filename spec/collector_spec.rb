@@ -24,4 +24,15 @@ RSpec.describe Collector do
     expect(collector.is_useful? Card.new("3D")).to  be false
   end
 
+  it 'throws an exception tryin to collect useless cards' do
+    collector = Collector.new
+
+    collector.collect(Card.new "1B")
+
+    expect{
+      collector.collect(Card.new "3B")
+    }.to raise_error(UselessCollectAttempt, "Collector cannot collect 3B card yet")
+    
+  end
+
 end
