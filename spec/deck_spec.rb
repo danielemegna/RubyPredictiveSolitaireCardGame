@@ -39,6 +39,14 @@ RSpec.describe Deck do
     expect(@deck.size).to eq expected_deck_size
   end
 
+  it "shows third card at the next round if was a remove" do
+    @deck.remove_current_valuable_card
+    19.times { @deck.flip_cards }
+    
+    expected = Card.new "3C"
+    expect(@deck.show_current_valuable_card).to eq expected
+  end
+
   #TODO after two removes at the beginning,
   # show_current_valuable_card should return nil
 
