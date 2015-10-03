@@ -19,4 +19,8 @@ class Collector
     return latest_seed_card.is_natural_successor? card
   end
 
+  def collect card
+    @latest_useful_cards[card.seed] = card
+  end
+
 end
