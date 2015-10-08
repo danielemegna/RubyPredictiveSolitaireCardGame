@@ -46,5 +46,13 @@ RSpec.describe Card do
   end
 
   #TODO Card.new "AS" should be recognized as "1S" and so on ..
+  xit "recognizes Aces as one and viceversa" do
+    ace_of_coppe  = Card.new "AC"
+    one_of_coppe  = Card.new "1C"
+    
+    expect(ace_of_coppe).to eq one_of_coppe
+    expect(ace_of_coppe.number).to eq 1
+  end
+
 
 end
