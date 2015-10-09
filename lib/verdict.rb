@@ -1,12 +1,12 @@
 class Verdict
 
   attr_reader :deck_snapshot
-  attr_reader :filps_count
+  attr_reader :flips_count
   
-  def initialize is_victory, filps_count, deck_snapshot
-    @is_victory = is_victory
-    @filps_count = filps_count
-    @deck_snapshot = deck_snapshot
+  def initialize deck
+    @is_victory = deck.empty?
+    @flips_count = deck.flips_count
+    @deck_snapshot = deck.to_s
   end
 
   def victory?

@@ -13,7 +13,7 @@ RSpec.describe Droidealer do
     
     expect(verdict.victory?).to be false
     expect(verdict.deck_snapshot).to eq deck_string
-    expect(verdict.filps_count).to eq 20
+    expect(verdict.flips_count).to eq 20
   end
 
 end
