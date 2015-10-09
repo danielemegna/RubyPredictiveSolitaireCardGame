@@ -19,6 +19,10 @@ class Deck
   def remove_current_valuable_card
     @cards.delete_at @current_valuable_card_index
     @current_valuable_card_index -= 1
+
+    if(@current_valuable_card_index < 0)
+      @current_valuable_card_index = 1
+    end
   end
 
   def flip_cards

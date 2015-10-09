@@ -8,22 +8,22 @@ RSpec.describe Deck do
       "2B 8S 3B 7B 7C 3S 8D 4S 7S 1D 10D 9C 9B 5B 3C"
   end
 
-  it "init with cards identifiers and get size" do
+  it "inits with cards identifiers and provides its size" do
     expect(@deck.size).to eq 40
   end
 
-  it "show the current valuable card" do
+  it "shows the current valuable card" do
     expected = Card.new "5C"
     expect(@deck.show_current_valuable_card).to eq expected
   end
 
-  it "change valuable card after flip" do
+  it "changes valuable card after flip" do
     @deck.flip_cards
     expected = Card.new "10B"
     expect(@deck.show_current_valuable_card).to eq expected
   end
 
-  it "reload from begin after 20 filp" do
+  it "reloads from begin after 20 filp" do
     20.times { @deck.flip_cards }
     expected = Card.new "5C"
     expect(@deck.show_current_valuable_card).to eq expected
@@ -39,7 +39,7 @@ RSpec.describe Deck do
     expect(@deck.size).to eq expected_deck_size
   end
 
-  it "shows third card at the next round if was a remove" do
+  it "shows third card at the next round if there was a remove" do
     @deck.remove_current_valuable_card
     20.times { @deck.flip_cards }
     
@@ -55,10 +55,12 @@ RSpec.describe Deck do
     expect(@deck.show_current_valuable_card).to eq expected
   end
 
-  #TODO after two removes at the beginning,
-  # show_current_valuable_card should return nil
-
-  #TODO a triple remove at the beginning of deck
-  # should raises an exception (?)
+  it "returns third card as next valuable after two remove at the beginning" do
+    @deck.remove_current_valuable_card
+    @deck.remove_current_valuable_card
+    
+    expected = Card.new "10B"
+    expect(@deck.show_current_valuable_card).to eq expected
+  end
 
 end
