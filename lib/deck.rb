@@ -52,4 +52,8 @@ class Deck
     
   end
 
+  def empty?
+    size == 0
+  end
+
 end

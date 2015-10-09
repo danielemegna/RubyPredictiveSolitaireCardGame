@@ -27,7 +27,7 @@ RSpec.describe Deck do
     expect(@deck.show_current_valuable_card).to eq expected
   end
 
-  it "reloads from begin after 20 filp" do
+  it "reloads from begin after 20 flip" do
     20.times { @deck.flip_cards }
     expected = Card.new "5C"
     expect(@deck.show_current_valuable_card).to eq expected
@@ -87,6 +87,14 @@ RSpec.describe Deck do
       "2B 8S 3B 7B 7C 3S 8D 4S 7S 1D 10D 9C 9B 5B 3C"
 
     expect(@deck.to_s).to eq expected
+  end
+
+  it "is empty after 40 removes" do
+    expect(@deck.empty?).to be false
+
+    40.times { @deck.remove_current_valuable_card }
+
+    expect(@deck.empty?).to be true
   end
 
 end
