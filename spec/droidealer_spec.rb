@@ -16,4 +16,22 @@ RSpec.describe Droidealer do
     expect(verdict.flips_count).to eq 20
   end
 
+  it 'failure after two rounds' do
+    @droid = Droidealer.new
+
+    deck_string       = "9S 5C 6C 10B 6B 6D 8C 10C 2S 1S 6S 5D " + 
+      "9D 10S 2D 4B 4C 4D 7D 2C 1C 8B 1B 5S 3D " + 
+      "2B 8S 3B 7B 7C 3S 8D 4S 7S 1D 10D 9C 9B 5B 3C"
+
+    expected_snapshot = "9S 5C 6C 10B 6B 6D 8C 10C 6S 5D " + 
+      "9D 10S 2D 4B 4C 4D 7D 2C 1C 8B 1B 5S 3D " + 
+      "2B 8S 3B 7B 7C 3S 8D 4S 7S 1D 10D 9C 9B 5B 3C"
+
+    verdict = @droid.generate_game_verdict(deck_string)
+    
+    expect(verdict.victory?).to be false
+    expect(verdict.deck_snapshot).to eq expected_snapshot
+    expect(verdict.flips_count).to eq 39
+  end
+
 end
