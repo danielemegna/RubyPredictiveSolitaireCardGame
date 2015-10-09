@@ -6,14 +6,15 @@ class Deck
     }
 
     @current_valuable_card_index = 1
+    @just_started_over = false
   end
   
   def size
     @cards.length
   end
 
-  def evaluating_top_deck?
-    @current_valuable_card_index == 1 || size == 1
+  def just_started_over?
+    @just_started_over
   end
 
   def show_current_valuable_card
@@ -31,13 +32,16 @@ class Deck
 
   def flip_cards
     @current_valuable_card_index += 2
-
-    if(@current_valuable_card_index > @cards.length)
-      @current_valuable_card_index = 1
-    end
+    @just_started_over = false
 
     if(@current_valuable_card_index == @cards.length)
       @current_valuable_card_index -= 1
+      return
+    end
+
+    if(@current_valuable_card_index > @cards.length)
+      @current_valuable_card_index = 1
+      @just_started_over = true
     end
   end
 

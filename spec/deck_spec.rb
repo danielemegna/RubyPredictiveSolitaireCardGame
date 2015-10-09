@@ -12,6 +12,10 @@ RSpec.describe Deck do
     expect(@deck.size).to eq 40
   end
 
+  it "is not just started over at the beginning" do
+    expect(@deck.just_started_over?).to be false
+  end
+
   it "shows the current valuable card" do
     expected = Card.new "5C"
     expect(@deck.show_current_valuable_card).to eq expected
@@ -27,6 +31,11 @@ RSpec.describe Deck do
     20.times { @deck.flip_cards }
     expected = Card.new "5C"
     expect(@deck.show_current_valuable_card).to eq expected
+  end
+
+  it "recognizes reloads from begin as just_started_over" do
+    40.times { @deck.flip_cards }
+    expect(@deck.just_started_over?).to be true
   end
 
   it "can remove the current valuable card" do
@@ -61,10 +70,7 @@ RSpec.describe Deck do
     
     expected = Card.new "10B"
     expect(@deck.show_current_valuable_card).to eq expected
-  end
-
-  it "is evaluating top deck at the beginning" do
-    expect(@deck.evaluating_top_deck?).to be true
+    expect(@deck.just_started_over?).to be false
   end
 
 end
