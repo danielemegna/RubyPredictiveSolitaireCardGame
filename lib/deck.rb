@@ -12,6 +12,10 @@ class Deck
     @cards.length
   end
 
+  def evaluating_top_deck?
+    @current_valuable_card_index == 1 || size == 1
+  end
+
   def show_current_valuable_card
     @cards[@current_valuable_card_index]
   end

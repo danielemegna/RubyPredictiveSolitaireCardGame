@@ -8,7 +8,7 @@ RSpec.describe Deck do
       "2B 8S 3B 7B 7C 3S 8D 4S 7S 1D 10D 9C 9B 5B 3C"
   end
 
-  it "inits with cards identifiers and provides its size" do
+  it "provides its size" do
     expect(@deck.size).to eq 40
   end
 
@@ -61,6 +61,10 @@ RSpec.describe Deck do
     
     expected = Card.new "10B"
     expect(@deck.show_current_valuable_card).to eq expected
+  end
+
+  it "is evaluating top deck at the beginning" do
+    expect(@deck.evaluating_top_deck?).to be true
   end
 
 end
