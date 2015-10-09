@@ -14,6 +14,7 @@ RSpec.describe Droidealer do
     expect(verdict.victory?).to be false
     expect(verdict.deck_snapshot).to eq deck_string
     expect(verdict.flips_count).to eq 20
+    expect(verdict.rounds_count).to eq 1
   end
 
   it 'failure after two rounds' do
@@ -32,6 +33,7 @@ RSpec.describe Droidealer do
     expect(verdict.victory?).to be false
     expect(verdict.deck_snapshot).to eq expected_snapshot
     expect(verdict.flips_count).to eq 39
+    expect(verdict.rounds_count).to eq 2
   end
 
 end
