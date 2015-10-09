@@ -73,4 +73,12 @@ RSpec.describe Deck do
     expect(@deck.just_started_over?).to be false
   end
 
+  it "recognizes reloads from begin as just_started_over also with 20 cards" do
+    20.times { @deck.remove_current_valuable_card }
+    expect(@deck.just_started_over?).to be false
+
+    10.times { @deck.flip_cards }
+    expect(@deck.just_started_over?).to be true
+  end
+
 end
