@@ -16,6 +16,10 @@ RSpec.describe Deck do
     expect(@deck.flips_count).to eq 0
   end
 
+  it "has zero rounds at beginning" do
+    expect(@deck.rounds_count).to eq 0
+  end
+
   it "is not just started over at the beginning" do
     expect(@deck.just_started_over?).to be false
   end
@@ -35,6 +39,11 @@ RSpec.describe Deck do
     20.times { @deck.flip_cards }
     expected = Card.new "5C"
     expect(@deck.show_current_valuable_card).to eq expected
+  end
+
+  it "has 1 round after 20 flips" do
+    20.times { @deck.flip_cards }
+    expect(@deck.rounds_count).to eq 1
   end
 
   it "recognizes reloads from begin as just_started_over" do
