@@ -45,4 +45,11 @@ class Deck
     end
   end
 
+  def to_s
+    @cards.map {
+      |card| card.to_s
+    }.join(" ")
+    
+  end
+
 end
