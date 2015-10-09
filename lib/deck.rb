@@ -1,4 +1,6 @@
 class Deck
+  
+  attr_reader :flips_count
 
   def initialize cards
     @cards = cards.split.map {
@@ -7,6 +9,7 @@ class Deck
 
     @current_valuable_card_index = 1
     @just_started_over = false
+    @flips_count = 0
   end
   
   def size
@@ -31,6 +34,8 @@ class Deck
   end
 
   def flip_cards
+    @flips_count += 1
+
     @current_valuable_card_index += 2
     @just_started_over = false
 

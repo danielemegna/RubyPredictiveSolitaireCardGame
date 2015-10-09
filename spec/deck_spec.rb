@@ -12,6 +12,10 @@ RSpec.describe Deck do
     expect(@deck.size).to eq 40
   end
 
+  it "has zero filps at beginning" do
+    expect(@deck.flips_count).to eq 0
+  end
+
   it "is not just started over at the beginning" do
     expect(@deck.just_started_over?).to be false
   end
@@ -95,6 +99,13 @@ RSpec.describe Deck do
     40.times { @deck.remove_current_valuable_card }
 
     expect(@deck.empty?).to be true
+  end
+
+  it "provides number of executed filps" do
+    flips = 42 
+    flips.times { @deck.flip_cards }
+
+    expect(@deck.flips_count).to eq flips
   end
 
 end
