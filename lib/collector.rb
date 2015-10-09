@@ -23,7 +23,9 @@ class Collector
   end
 
   def collect card
-    raise UselessCollectAttempt, "Collector cannot collect #{card} card yet" unless is_useful? card
+    raise UselessCollectAttempt,
+      "Collector cannot collect #{card} card yet" unless is_useful? card
+
     @latest_useful_cards[card.seed] = card
   end
 
