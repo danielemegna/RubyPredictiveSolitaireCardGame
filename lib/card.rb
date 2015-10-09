@@ -4,9 +4,8 @@ class Card
   attr_reader :number
 
   def initialize number_and_seed
-    seed_index = number_and_seed.length-1
-    @number = number_and_seed.slice(0, seed_index).to_i
-    @seed   = number_and_seed.slice(seed_index)
+    @seed   = extract_seed_from_string(number_and_seed)
+    @number = extract_number_from_string(number_and_seed)
   end
 
   def has_same_seed? other_card
@@ -26,5 +25,21 @@ class Card
   def to_s
     "#{@number}#{@seed}"
   end
+
+  private
+
+    def extract_seed_from_string string
+      seed_index = string.length - 1
+      string
+        .slice(seed_index)
+    end
+
+    def extract_number_from_string string
+      seed_index = string.length - 1
+      string
+        .slice(0, seed_index) 
+        .sub('A', '1')
+        .to_i
+    end
 
 end
