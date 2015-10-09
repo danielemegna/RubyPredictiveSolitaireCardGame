@@ -41,9 +41,9 @@ RSpec.describe Deck do
 
   it "shows third card at the next round if was a remove" do
     @deck.remove_current_valuable_card
-    19.times { @deck.flip_cards }
+    20.times { @deck.flip_cards }
     
-    expected = Card.new "3C"
+    expected = Card.new "6C"
     expect(@deck.show_current_valuable_card).to eq expected
   end
 
