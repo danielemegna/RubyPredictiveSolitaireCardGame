@@ -38,7 +38,7 @@ RSpec.describe Droidealer do
     expect(verdict.deck_snapshot).to eq expected_snapshot
   end
 
-  xit 'win with trivial victory' do
+  it 'win with trivial victory' do
     @droid = Droidealer.new
 
     deck_string = "2C 1C 2B 1B 2D 1D 2S 1S 4C 3C 4B 3B " + 

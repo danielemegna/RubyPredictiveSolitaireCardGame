@@ -8,19 +8,17 @@ class Droidealer
 
     a_card_has_been_removed_in_this_round = false
 
-
     while true do
 
       while(collector.is_useful? deck.show_current_valuable_card) do
         collector.collect deck.show_current_valuable_card
         deck.remove_current_valuable_card
         a_card_has_been_removed_in_this_round = true
-
-        if(deck.size == 0)
-          break
-        end
       end
 
+      if(deck.size == 0)
+        break
+      end
 
       deck.flip_cards
 
