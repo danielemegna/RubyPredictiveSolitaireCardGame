@@ -1,4 +1,6 @@
 require 'verdict'
+require 'deck'
+require 'collector'
 
 class Droidealer
 
@@ -10,6 +12,8 @@ class Droidealer
 
     while true do
 
+      deck.flip_cards
+
       while(collector.is_useful? deck.show_current_valuable_card) do
         collector.collect deck.show_current_valuable_card
         deck.remove_current_valuable_card
@@ -20,9 +24,7 @@ class Droidealer
         break
       end
 
-      deck.flip_cards
-
-      if(deck.just_started_over?)
+      if(deck.just_finished?)
         if(!a_card_has_been_removed_in_this_round)
           break
         end

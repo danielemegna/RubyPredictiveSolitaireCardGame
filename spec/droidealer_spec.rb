@@ -13,12 +13,12 @@ RSpec.describe Droidealer do
     
     expect(verdict.victory?).to be false
     expect(verdict.cards_count).to eq 40
-    expect(verdict.rounds_count).to eq 1
+    expect(verdict.rounds_count).to eq 0
     expect(verdict.flips_count).to eq 20
     expect(verdict.deck_snapshot).to eq deck_string
   end
 
-  it 'failure after two rounds' do
+  it 'failure at the second rounds' do
     @droid = Droidealer.new
 
     deck_string       = "9S 5C 6C 10B 6B 6D 8C 10C 2S 1S 6S 5D " + 
@@ -33,7 +33,7 @@ RSpec.describe Droidealer do
     
     expect(verdict.victory?).to be false
     expect(verdict.cards_count).to eq 38
-    expect(verdict.rounds_count).to eq 2
+    expect(verdict.rounds_count).to eq 1
     expect(verdict.flips_count).to eq 20 + 19
     expect(verdict.deck_snapshot).to eq expected_snapshot
   end
@@ -50,8 +50,26 @@ RSpec.describe Droidealer do
     expect(verdict.victory?).to be true
     expect(verdict.cards_count).to eq 0
     expect(verdict.rounds_count).to eq 0
-    expect(verdict.flips_count).to eq 0
+    expect(verdict.flips_count).to eq 20
     expect(verdict.deck_snapshot).to eq ""
+  end
+
+  it 'resolve a random new test case' do
+    @droid = Droidealer.new
+
+    deck_string = "9S 7B 10S 6D AS 2D 8S 3C 5B 4S " + 
+      "3B AB 4C 2B 10B 9B 9D 7D 7C 5D " +
+      "8C 5S 4D 6C 9C 2S 7S 10D 3D 6S " +
+      "10C AC 8B 8D AD 2C 6B 5C 4B 3S"
+      
+    verdict = @droid.generate_game_verdict(deck_string)
+
+    expect(verdict.victory?).to be false
+    expect(verdict.rounds_count).to eq 6
+    expect(verdict.flips_count).to eq 87
+    #expect(verdict.cards_count).to eq 
+    #expect(verdict.deck_snapshot).to eq ""
+    
   end
 
 end
