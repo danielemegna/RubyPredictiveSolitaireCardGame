@@ -1,6 +1,6 @@
-require 'verdict'
-require 'deck'
-require 'collector'
+require_relative 'verdict'
+require_relative 'deck'
+require_relative 'collector'
 
 class Droidealer
 
