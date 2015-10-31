@@ -17,4 +17,15 @@ class Verdict
     @is_victory
   end
 
+  def to_s
+    "Verdict\n" +
+    "-----------\n" +
+    "- Victory?\t\t" + (if victory? then 'Yes' else 'No' end) + "\n" +
+    "- Flips count:\t\t" + @flips_count.to_s + "\n" +
+    "- Rounds count:\t\t" + @rounds_count.to_s + "\n" +
+    "- Cards count:\t\t" + @cards_count.to_s + "\n" +
+    "- Deck Snapshot:\t" + @deck_snapshot
+
+  end
+
 end
