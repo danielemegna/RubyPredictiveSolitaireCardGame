@@ -12,7 +12,7 @@ RSpec.describe Deck do
     expect(@deck.size).to eq 40
   end
 
-  it "has zero filps at beginning" do
+  it "has zero flips at beginning" do
     expect(@deck.flips_count).to eq 0
   end
 
@@ -28,7 +28,7 @@ RSpec.describe Deck do
     expect(@deck.show_current_valuable_card).to be_nil
   end
 
-  it "shows the current valuable card after a filp" do
+  it "shows the current valuable card after a flip" do
     @deck.flip_cards
     expected = Card.new "5C"
     expect(@deck.show_current_valuable_card).to eq expected
@@ -120,7 +120,7 @@ RSpec.describe Deck do
     expect(@deck.empty?).to be true
   end
 
-  it "provides number of executed filps" do
+  it "provides number of executed flips" do
     flips = 42 
     flips.times { @deck.flip_cards }
 
