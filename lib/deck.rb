@@ -11,7 +11,6 @@ class Deck
     }
 
     @current_valuable_card_index = nil
-    @just_finished = false
     @flips_count = 0
     @rounds_count = 0
   end
@@ -21,7 +20,7 @@ class Deck
   end
 
   def just_finished?
-    @just_finished
+    @current_valuable_card_index == @cards.length-1
   end
 
   def show_current_valuable_card
@@ -47,17 +46,13 @@ class Deck
     end
 
     @current_valuable_card_index += 2
-    @just_finished = false
-
 
     if(@current_valuable_card_index == @cards.length)
       @current_valuable_card_index -= 1
-      @just_finished = true
       return
     end
 
     if(@current_valuable_card_index == @cards.length-1)
-      @just_finished = true
     end
 
     if(@current_valuable_card_index > @cards.length)

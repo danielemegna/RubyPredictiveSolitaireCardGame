@@ -68,7 +68,7 @@ RSpec.describe Droidealer do
     
   end
 
-  xit 'fix this loop game!!!!' do
+  it 'fix this loop game!!!!' do
     deck_string =
       "8S 5S 7C 1B 1D 7S 8D 10B 4D 8C " +
       "7D 6B 4C 8B 6S 2D 4S 2B 9D 9S " +
