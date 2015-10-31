@@ -1,0 +1,30 @@
+#!/usr/bin/env ruby
+
+require_relative 'lib/droidealer.rb'
+
+deck_string = "2C 1C 2B 1B 2D 1D 2S 1S 4C 3C 4B 3B " + 
+  "4D 3D 4S 3S 6C 5C 6B 5B 6D 5D 6S 5S 8C " + 
+  "7C 8B 7B 8D 7D 8S 7S 10C 9C 10B 9B 10D 9D 10S 9S"
+
+droid = Droidealer.new
+
+#loop do
+  #cards_array = deck_string.split().shuffle
+  #puts 'Playing with ' + cards_array.join(' ')
+  #verdict = droid.generate_game_verdict(cards_array.join(' '))
+  #puts verdict.to_s
+  #break if verdict.victory?
+#end
+
+victory_count = 0
+50.times {
+  cards_array = deck_string.split().shuffle
+  puts 'Playing with ' + cards_array.join(' ')
+  verdict = droid.generate_game_verdict(cards_array.join(' '))
+  if verdict.victory?
+    victory_count += 1
+  end
+}
+
+puts victory_count.to_s + " victories on 50 games"
+puts "Victory rate: " + (victory_count / 50).to_s
