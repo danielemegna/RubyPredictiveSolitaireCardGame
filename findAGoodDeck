@@ -8,23 +8,25 @@ deck_string = "2C 1C 2B 1B 2D 1D 2S 1S 4C 3C 4B 3B " +
 
 droid = Droidealer.new
 
-#loop do
-  #cards_array = deck_string.split().shuffle
-  #puts 'Playing with ' + cards_array.join(' ')
-  #verdict = droid.generate_game_verdict(cards_array.join(' '))
-  #puts verdict.to_s
-  #break if verdict.victory?
-#end
-
-victory_count = 0
-50.times {
+loop do
   cards_array = deck_string.split().shuffle
-  puts 'Playing with ' + cards_array.join(' ')
+  verdict = droid.generate_game_verdict(cards_array.join(' '))
+  if verdict.victory?
+    puts 'Playing with ' + cards_array.join(' ')
+    puts verdict.to_s
+    break
+  end
+end
+
+games_count = 500
+victory_count = 0
+games_count.times {
+  cards_array = deck_string.split().shuffle
   verdict = droid.generate_game_verdict(cards_array.join(' '))
   if verdict.victory?
     victory_count += 1
   end
 }
 
-puts victory_count.to_s + " victories on 50 games"
-puts "Victory rate: " + (victory_count / 50).to_s
+puts victory_count.to_s + " victories on #{games_count} games"
+puts "Victory rate: " + (victory_count.to_f / games_count.to_f * 100).to_s
