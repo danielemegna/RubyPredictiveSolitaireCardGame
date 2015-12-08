@@ -16,8 +16,8 @@ RSpec.describe Deck do
     expect(@deck.flips_count).to eq 0
   end
 
-  it "has zero rounds at beginning" do
-    expect(@deck.rounds_count).to eq 0
+  it "has one round at beginning" do
+    expect(@deck.rounds_count).to eq 1
   end
 
   it "is not just_finished at the beginning" do
@@ -46,9 +46,9 @@ RSpec.describe Deck do
     expect(@deck.show_current_valuable_card).to eq expected
   end
 
-  it "has 1 round after 21 flips" do
+  it "has 2 rounds after 21 flips" do
     21.times { @deck.flip_cards }
-    expect(@deck.rounds_count).to eq 1
+    expect(@deck.rounds_count).to eq 2
   end
 
   it "recognizes end of deck as just_finished" do

@@ -15,7 +15,7 @@ RSpec.describe Droidealer do
     
     expect(verdict.victory?).to be false
     expect(verdict.cards_count).to eq 40
-    expect(verdict.rounds_count).to eq 0
+    expect(verdict.rounds_count).to eq 1
     expect(verdict.flips_count).to eq 20
     expect(verdict.deck_snapshot).to eq deck_string
   end
@@ -33,7 +33,7 @@ RSpec.describe Droidealer do
     
     expect(verdict.victory?).to be false
     expect(verdict.cards_count).to eq 38
-    expect(verdict.rounds_count).to eq 1
+    expect(verdict.rounds_count).to eq 2
     expect(verdict.flips_count).to eq 20 + 19
     expect(verdict.deck_snapshot).to eq expected_snapshot
   end
@@ -47,7 +47,7 @@ RSpec.describe Droidealer do
 
     expect(verdict.victory?).to be true
     expect(verdict.cards_count).to eq 0
-    expect(verdict.rounds_count).to eq 0
+    expect(verdict.rounds_count).to eq 1
     expect(verdict.flips_count).to eq 20
     expect(verdict.deck_snapshot).to eq ""
   end
@@ -61,7 +61,7 @@ RSpec.describe Droidealer do
     verdict = @droid.generate_game_verdict(deck_string)
 
     expect(verdict.victory?).to be false
-    expect(verdict.rounds_count).to eq 6
+    expect(verdict.rounds_count).to eq 7
     expect(verdict.flips_count).to eq 87
     expect(verdict.cards_count).to eq 12
     expect(verdict.deck_snapshot).to eq "9S 10S 6D 8S 9D 7D 8C 9C 7S 10D 10C 8D"
@@ -76,6 +76,20 @@ RSpec.describe Droidealer do
       "10C 5B 1C 10D 6D 6C 2C 3S 3C 2S"
 
     verdict = @droid.generate_game_verdict(deck_string)
+  end
+
+  it 'real verified game return wrong round count' do
+    deck_string =
+      "10D 4D 2C 2S 1S 2D 7C 6B 9C 6D " +
+      "8C 9D 6C 3D 4C 2B 5D 3C 7D 5C " +
+      "3S 10S 9S 6S 4B 1B 8D 7S 8B 1D " +
+      "1C 10C 10B 5S 8S 7B 9B 5B 4S 3B"
+
+    verdict = @droid.generate_game_verdict(deck_string)
+    expect(verdict.victory?).to be true
+    expect(verdict.flips_count).to eq 87
+    expect(verdict.rounds_count).to eq 7
+
   end
 
 end

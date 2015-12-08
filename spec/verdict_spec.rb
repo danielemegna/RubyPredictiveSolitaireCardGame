@@ -11,7 +11,7 @@ RSpec.describe Droidealer do
       "-----------\n" +
       "- Victory?\t\tNo\n" +
       "- Flips count:\t\t0\n" +
-      "- Rounds count:\t\t0\n" +
+      "- Rounds count:\t\t1\n" +
       "- Cards count:\t\t8\n" +
       "- Deck Snapshot:\t9S 5C 6C 10B 6B 6D 8C 10C"
 
@@ -29,7 +29,7 @@ RSpec.describe Droidealer do
       "-----------\n" +
       "- Victory?\t\tNo\n" +
       "- Flips count:\t\t9\n" +
-      "- Rounds count:\t\t2\n" +
+      "- Rounds count:\t\t3\n" +
       "- Cards count:\t\t8\n" +
       "- Deck Snapshot:\t9S 5C 6C 10B 6B 6D 8C 10C"
 
@@ -48,7 +48,7 @@ RSpec.describe Droidealer do
       "-----------\n" +
       "- Victory?\t\tNo\n" +
       "- Flips count:\t\t3\n" +
-      "- Rounds count:\t\t0\n" +
+      "- Rounds count:\t\t1\n" +
       "- Cards count:\t\t4\n" +
       "- Deck Snapshot:\t6B 6D 8C 10C"
 

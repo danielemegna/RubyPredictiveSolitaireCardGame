@@ -12,7 +12,7 @@ class Deck
 
     @current_valuable_card_index = nil
     @flips_count = 0
-    @rounds_count = 0
+    @rounds_count = 1
   end
   
   def size
