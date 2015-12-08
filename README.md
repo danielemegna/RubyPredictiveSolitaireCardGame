@@ -31,3 +31,19 @@ When you recognize that there aren't useful cards in the available positions. If
 
 ##### When I'll win?
 When you have no cards to collect yet :)
+
+# Run
+
+### Console application
+You can run the random stats util using an helper script:
+
+./findAGoodDeck
+
+
+### Docker
+You can also run a minimal sinatra web application via Docker:
+
+docker build -t ruby-solitaire .
+docker run -d -p 8080:80 -v $(pwd):/app ruby-solitaire
+
+and visiting localhost:8080
