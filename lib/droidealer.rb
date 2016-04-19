@@ -44,7 +44,7 @@ class Droidealer
 
     result += random_good_deck
     result += "\n"
-    result += random_victory_stats(500)
+    result += random_victory_stats(100)
   end
 
   def random_good_deck
